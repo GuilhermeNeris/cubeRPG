@@ -13,14 +13,14 @@
 <body>
     <header class="meu-header">
         <div class="header">
-            <img src="assets/Home/logo.png" alt="" id="titulo">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
             <div class="container">
                 <ul class="navebar">
-                    <li id="home"> Home </li>
+                    <li id="home" onclick="home()"> Home </li>
                     <li id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
                     <li id="sobreMim"> Sobre Mim </li>
                     <li id="quiz"> Quiz</li>
-                    <li id="login"> Login</li>
+                    <li id="login" onclick="login()"> Login</li>
                 </ul>
             </div>
         </div>
@@ -95,3 +95,22 @@
             </p>
 </body>
 </html>
+
+<script>
+    function home(){
+        window.location.href = 'index.html';
+    }
+
+    function login(){
+        window.location.href = 'telaCadastro.html'
+    }
+    
+    function cubePlay(){
+        window.location.href = 'index.html#meuFrame';
+    }
+
+    function inicio(){
+        window.location.href = 'index.html';
+    }
+
+</script>

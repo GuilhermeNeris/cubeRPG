@@ -24,9 +24,9 @@
             <ul class="navebar">
                 <li id="home"> Home </li>
                 <li id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
-                <li id="sobreMim"> Sobre Mim </li>
+                <li id="sobreMim" onclick="sobremim()"> Sobre Mim </li>
                 <li id="quiz"> Quiz</li>
-                <li id="login"> Login</li>
+                <li id="login" onclick="login()"> Login</li>
             </ul>
         </div>
     </div>
@@ -68,7 +68,7 @@
 
 
     <!-- CubePlay -->
-
+    <div id="meuFrame"></div>
     <img id="CubePLaYlogo" src="assets/Home/CubePlayLogo.jpg" alt="">
 
     <br>
@@ -400,6 +400,15 @@ todos os direitos reservados CubeRPG©2024<br>
             elemento.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
+
+ function sobremim(){
+    window.location.href = 'SobreMim.html';
+ }
+
+ function login(){
+    window.location.href = 'telaCadastro.html'
+ }
+
 </script>
 
 

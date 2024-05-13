@@ -128,7 +128,7 @@ body {
     border-width: 2px;
 }
 
-.boxCadastrar button {
+.boxLogar button {
     width: 200px;
     padding: 10px;
     border: none;
@@ -139,16 +139,16 @@ body {
     cursor: pointer;
 }
 
-.boxCadastrar {
+.boxLogar {
     padding-left: 60px;
     padding-top: 40px;
 }
 
-#buttonCadastrar:hover {
+#Entrar:hover {
     background-color: #0ea027;
 }
 
-.boxJaTenhoConta button {
+.boxNaoTenhoConta button {
     width: 200px;
     padding: 10px;
     border: none;
@@ -159,16 +159,19 @@ body {
     cursor: pointer;
 }
 
-.boxJaTenhoConta {
+.boxNaoTenhoConta {
     padding-left: 60px;
     padding-top: -60px;
     z-index: 6;
 }
 
-#buttonJaTenhoConta:hover {
+#buttonNaoTenhoConta:hover {
     background-color: #a00e0e;
 }
 
 .futter{
     height: 50px;
+    display: flex;
+    background-color: #ffffff;
+    padding-top: 100px;
 }
