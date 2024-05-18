@@ -51,10 +51,50 @@ body {
     text-decoration: none;
 }
 
-.Banner{
- display: flex;
- width: 490px;
- height: 490px;
+.carousel {
+    position: relative;
+    width: 1350px; /* Defina a largura desejada */
+    height: 500px; /* Defina a altura desejada */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 1350px;
+    height:500px;
+    display: block;
+    border-radius: 10px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
 }
 
 .OqueERPG{
@@ -759,32 +799,32 @@ body {
     #LinkedinLogo{
       display: flex;
       position: relative;
-      width: 80px;
-      height: 80px;
-      margin-top: -100px;
-      padding-left: 980px;
+      width: 50px;
+      height: 50px;
+      margin-top: -90px;
+      padding-left: 1050px;
     }
     
     #GitHubLogo{
         display: flex;
-        padding-left: 1090px;
-        margin-top: -80px;
-        width: 80px;
-        height: 80px;
+        padding-left: 1120px;
+        margin-top: -50px;
+        width: 50px;
+        height: 50px;
     }
     
     #YoutubeLogo{
         display: flex;
-        padding-left: 1200px;
-        width: 100px;
-        height: 75px;
-        margin-top: -80px;
+        padding-left: 1190px;
+        width: 75px;
+        height: 50px;
+        margin-top: -50px;
     }
     
     #texto1Futter{
         color: white;
         padding-left: 500px;
-        margin-top: 15px;
+        margin-top: 25px;
         
     }
     
