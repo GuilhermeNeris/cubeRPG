@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.header {
+    border-bottom: 2px solid #F85F00;
+    height: 75px;
+    display: flex;
+    width: 1380px;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+
+.header .container{
+    justify-content: space-between;
+}
+
+#titulo{   
+   z-index: 5;
+   width: 200px;
+   height: 110px;
+   display: flex;
+   margin-top: -15px;
+   cursor: pointer;
+   text-shadow: 2px 2px 10px 0px rgba(0,0,0,0.6);
+   transition-duration: 0.2s;
+}
+
+
+.navebar{
+
+    color: #000000;
+    width: 600px;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    list-style: none;
+    z-index: 3;
+    height: 50px;
+    padding-left: 420px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#home:hover, #cubeplay:hover, #sobreMim:hover, #quiz:hover, #login:hover{
+    transform: scale(110%);
+    color: #F85F00;
+    transition: 0.1s;
+}
+
+#quiz{
+    font-weight: bold;
+    color: #F85F00;
+}
+
+#titulo:hover{
+    transform: scale(110%);
+    transition: 0.1s;
+}
+
+
+#tituloDesafioDados{
+    padding-left: 450px;
+    padding-top: 50px;
+}
+
+#quiz-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #F85F00;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+#question {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#options button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F85F00;
+    color: #fff;
+    cursor: pointer;
+}
+
+#options button:hover {
+    background-color: #c2500a;
+}
+

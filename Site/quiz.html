@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Home/iconPagina.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/quiz.css">
+    <script type="text/javascript" src="js/quiz.js"></script>
+</head>
+<body>
+    <header class="meu-header">
+        <div class="header">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+            <div class="container">
+                <ul class="navebar">
+                    <li onclick="home()" id="home"> Home </li>
+                    <li onclick="cubeplay()" id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
+                    <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
+                    <li id="quiz"> Quiz</li>
+                    <li onclick="login()" id="login"> Login</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <h1 id="tituloDesafioDados" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+        Desafio dos Dados</h1>
+
+        <div id="quiz-container">
+            <div id="question"></div>
+            <div id="options"></div>
+        </div>
+</body>
+</html>
+

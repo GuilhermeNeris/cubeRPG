@@ -806,6 +806,7 @@ body {
     }
     
     #GitHubLogo{
+        position: absolute;
         display: flex;
         padding-left: 1120px;
         margin-top: -50px;
