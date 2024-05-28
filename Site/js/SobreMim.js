@@ -13,3 +13,7 @@ function cubePlay(){
 function inicio(){
     window.location.href = 'index.html';
 }
+
+function biblioteca(){
+    window.location.href = 'index.html#FrameBiblioteca';
+}

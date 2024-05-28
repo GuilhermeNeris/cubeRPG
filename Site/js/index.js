@@ -109,8 +109,11 @@ document.querySelector('.carousel-control.next').addEventListener('click', () =>
     window.location.href = 'https://www.primevideo.com/dp/amzn1.dv.gti.038bb834-946e-4426-9afa-ee153167b6a7?autoplay=0&ref_=atv_cf_strg_wb';
  }
 
- function quiz(){
-    window.location.href = 'quiz.html';
- }
+ function biblioteca(elementId) {
+   var elemento = document.getElementById('FrameBiblioteca');
+   if (elemento) {
+       elemento.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   }
+}
 
 

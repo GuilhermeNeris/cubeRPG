@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="css/telaLogin.css">
     <script type="text/javascript" src="js/telaLogin.js"></script>
 </head>
+
 <body>
     <header class="meu-header">
         <div class="header">
@@ -21,7 +23,7 @@
                     <li onclick="home()" id="home"> Home </li>
                     <li onclick="cubeplay()" id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
                     <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
-                    <li id="quiz"> Quiz</li>
+                    <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
                     <li onclick="login()" id="login"> Login</li>
                 </ul>
             </div>
@@ -31,39 +33,38 @@
     <h1 id="tituloFacalogin" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
         Faça login para iniciar a sessão</h1>
 
-        <img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
-        <img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
-        <img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
+    <img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
+    <img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
+    <img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
 
-        <div class="boxCadastro">
-            <div class="email">
+    <div class="boxCadastro">
+        <div class="email">
             Email <br>
-                <input id="input_emailUser" placeholder="usuario@email.com"> <br>
-            </div>
-            <br>
-            <div class="senha">
+            <input id="input_emailUser" placeholder="usuario@email.com"> <br>
+        </div>
+        <br>
+        <div class="senha">
             Senha <br>
-                <input id="input_senhaUser" placeholder="Digite sua senha">
-            </div>
-            <br>
-            <div class="boxLogar">
-                <button onclick="EntrarNaConta()" id="Entrar">
-                    Entrar
-                </button>
-                </div>
-                <br>
-                <div class="boxNaoTenhoConta">
-                <button onclick="NaoTenhoConta()" id="buttonNaoTenhoConta">
-                    Não tenho uma conta 
-                </button>
-                </div>
-                
-            </div>
+            <input id="input_senhaUser" type="password" placeholder="Digite sua senha">
+        </div>
+        <br>
+        <div class="boxLogar">
+            <button onclick="EntrarNaConta()" id="Entrar">
+                Entrar
+            </button>
+        </div>
+        <br>
+        <div class="boxNaoTenhoConta">
+            <button onclick="NaoTenhoConta()" id="buttonNaoTenhoConta">
+                Não tenho uma conta
+            </button>
+        </div>
 
-            <div class="futter">
-            </div>
-           <br><br>
+    </div>
+
+    <div class="futter">
+    </div>
+    <br><br>
 </body>
+
 </html>
-
-

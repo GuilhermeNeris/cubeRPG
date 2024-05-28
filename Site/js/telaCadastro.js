@@ -107,3 +107,7 @@ function sobreMim(){
 function IrParaTelaLogin(){
     window.location.href = 'telaLogin.html';
 }
+
+function biblioteca(){
+    window.location.href = 'index.html#FrameBiblioteca';
+}

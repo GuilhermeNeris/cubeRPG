@@ -47,16 +47,16 @@ body {
     z-index: 3;
     height: 50px;
     padding-left: 420px;
-    cursor: pointer;
     text-shadow: 2px 2px 10px 0px rgba(0,0,0,0.6);
     transition-duration: 0.2s;
     text-decoration: none;
 }
 
-#home:hover, #cubeplay:hover, #sobreMim:hover, #quiz:hover, #login:hover{
+#home:hover, #cubeplay:hover, #sobreMim:hover, #biblioteca:hover, #login:hover{
     transform: scale(110%);
     color: #F85F00;
     transition: 0.1s;
+    cursor: pointer;
 }
 
 #login{

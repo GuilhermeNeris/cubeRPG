@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="css/TelaCadastro.css">
     <script type="text/javascript" src="js/telaCadastro.js"></script>
 </head>
+
 <body>
     <header class="meu-header">
         <div class="header">
@@ -21,7 +23,7 @@
                     <li id="home" onclick="home()"> Home </li>
                     <li id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
                     <li id="sobreMim" onclick="sobreMim()"> Sobre Mim </li>
-                    <li id="quiz"> Quiz</li>
+                    <li id="biblioteca" onclick="biblioteca()"> Biblioteca</li>
                     <li id="login" onclick="login()"> Login</li>
                 </ul>
             </div>
@@ -31,49 +33,49 @@
     <h1 id="tituloFacaParteComunidade" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
         Faça parte da nossa comunidade!</h1>
 
-        <img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
-        <img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
-        <img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
+    <img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
+    <img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
+    <img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
 
-            <div class="boxCadastro">
-                <div class="nome">
-                Nome <br>
-                    <input id="input_nomeUser" placeholder="Como você gostaria de ser chamado?"> <br>
-                </div>
-                <br>
-                <div class="email">
-                Email <br>
-                    <input id="input_emailUser" placeholder="usuario@email.com"> <br>
-                </div>
-                <br>
-                <div class="senha">
-                Senha <br>
-                    <input id="input_senhaUser" placeholder="Digite uma senha forte">
-                </div>
-                <br>
-                <div class="senha2x">
-                Confirmar senha <br>
-                    <input id="input_senha2xUser" placeholder="Digite a senha novamente">
-                </div>
-                <br>
-    
-                <div class="boxCadastrar">
-                <button onclick="Cadastrar()" id="buttonCadastrar">
-                    Cadastrar-se
-                </button>
-                </div>
-                <br>
-                <div class="boxJaTenhoConta">
-                <button  onclick="IrParaTelaLogin()" id="buttonJaTenhoConta">
-                    Já tenho uma conta 
-                </button>
-                </div>
-                
-            </div>
+    <div class="boxCadastro">
+        <div class="nome">
+            Nome <br>
+            <input id="input_nomeUser" placeholder="Como você gostaria de ser chamado?"> <br>
+        </div>
+        <br>
+        <div class="email">
+            Email <br>
+            <input type="password" id="input_emailUser" placeholder="usuario@email.com"> <br>
+        </div>
+        <br>
+        <div class="senha">
+            Senha <br>
+            <input id="input_senhaUser" placeholder="Digite uma senha forte">
+        </div>
+        <br>
+        <div class="senha2x">
+            Confirmar senha <br>
+            <input id="input_senha2xUser" placeholder="Digite a senha novamente">
+        </div>
+        <br>
 
-            <div class="futter">
-            </div>
-            <br><br>          
+        <div class="boxCadastrar">
+            <button onclick="Cadastrar()" id="buttonCadastrar">
+                Cadastrar-se
+            </button>
+        </div>
+        <br>
+        <div class="boxJaTenhoConta">
+            <button onclick="IrParaTelaLogin()" id="buttonJaTenhoConta">
+                Já tenho uma conta
+            </button>
+        </div>
+
+    </div>
+
+    <div class="futter">
+    </div>
+    <br><br>
 </body>
-</html>
 
+</html>
