@@ -245,6 +245,7 @@ body {
         border-color: #db7908;
         position:absolute; 
         transition: 0.3s;
+        cursor: pointer;
 }
 
 .boxSalvar{

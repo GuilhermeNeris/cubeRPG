@@ -59,7 +59,7 @@ function EntrarNaConta(){
         input1.style.borderColor = 'green';
         input2.style.borderColor = 'green';
         alert('Login realizado com sucesso!')
-        window.location.href = 'index.html';
+        window.location.href = 'perfil.html';
     }
 }
 

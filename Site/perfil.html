@@ -24,7 +24,7 @@
                     <li onclick="cubeplay()" id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
                     <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
                     <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
-                    <li onclick="login()" id="login"> Login</li>
+                    <li onclick="login()" id="login"> Usuario</li>
                 </ul>
             </div>
         </div>
@@ -48,13 +48,13 @@
     <textarea id="BioDescricao"></textarea>
 
     <div class="boxOpcao1">
-        <button onclick="" id="botaoOpcao1">
+        <button onclick="Dashboard()" id="botaoOpcao1">
             Dashboard
         </button>
 
         <div class="boxOpcao2">
-            <button onclick="" id="botaoOpcao2">
-                Feed 
+            <button onclick="feedback()" id="botaoOpcao2">
+                Feedback 
             </button>
         </div>
 
@@ -64,7 +64,7 @@
             </button>
 
             <div class="boxOpcao4">
-                <button onclick="" id="botaoOpcao4">
+                <button onclick="SairDaConta()" id="botaoOpcao4">
                     Sair da conta
                 </button>
 
@@ -83,4 +83,36 @@
     function quiz(){
         window.location.href = 'quiz.html';
     }
+
+    function home(){
+    window.location.href = 'index.html';
+}
+
+function cubeplay(){
+    window.location.href = 'index.html#meuFrame';
+}
+
+function inicio(){
+    window.location.href = 'index.html';
+}
+
+function biblioteca(){
+    window.location.href = 'index.html#FrameBiblioteca';
+}
+
+function sobreMim(){
+    window.location.href = 'SobreMim.html';
+}
+
+function Dashboard(){
+    window.location.href = 'dashboard.html';
+}
+
+function SairDaConta(){
+    window.location.href = 'telaCadastro.html';
+}
+
+function feedback(){
+    window.location.href = 'feedback.html'
+}
 </script>

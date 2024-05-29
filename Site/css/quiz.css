@@ -57,7 +57,7 @@ body {
     transition: 0.1s;
 }
 
-#quiz{
+#login{
     font-weight: bold;
     color: #F85F00;
 }
@@ -82,6 +82,7 @@ body {
     background-color: #f9f9f9;
     top: -50px;
     position: relative;
+    
 }
 
 
@@ -109,7 +110,7 @@ body {
 #placarDePontos{
     color: #F85F00;
     font-size: 20px;
-    left: 150px;
+    left: 1050px;
     position: relative;
     top: -100px;
     font-weight: bold;
@@ -118,11 +119,91 @@ body {
 #SaidaPontos{
     color: #F85F00;
     font-size: 20px;
-    left: 290px;
-    position: relative;
+    left: 1100px;
     top: -143px;
     font-weight: bold;
-    
+    position: relative;
+    padding-left: 80px;
 }
 
+#botaoVoltar{
+    width: 50px;
+    height: 50px;
+    top: -420px;
+    position: relative;
+    left: 200px;
+}
 
+#botaoVoltar:hover{
+    cursor: pointer;
+}
+
+#botaoLaranja1{
+    z-index: 12;
+    background-color: #F85F00;
+    font-size: x-large;
+    font-family:'Inter', sans-serif; ;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+    border-color: #F85F00;
+    position:relative; 
+    transition: 0.3s;
+    cursor: pointer;
+    display: none;
+}
+
+.boxBotaolaranja1{
+    padding-left: 570px;
+    margin-top: -80px;
+}
+
+#botaoLaranja1:hover{
+    background-color: #c94e02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#divInfoGame{
+    width: 600px;
+    height: 300px;
+    background-color: #a79f9b;
+    left: 380px;
+    position: relative;
+    top: -300px;
+    border-radius: 10px;
+    display: block;
+}
+
+#botaoLaranja2{
+    z-index: 12;
+    background-color: #F85F00;
+    font-size: x-large;
+    font-family:'Inter', sans-serif; ;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+    border-color: #F85F00;
+    position:relative; 
+    transition: 0.3s;
+    cursor: pointer;
+    top: 250px;
+}
+
+.boxBotaolaranja2{
+    padding-left: 230px;
+}
+
+#botaoLaranja2:hover{
+    background-color: #c94e02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#textoQuiz{
+    font-size: 20px;
+    right: 110px;
+    position: relative;
+    text-align: center;
+    top: -20px;
+}

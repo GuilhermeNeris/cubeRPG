@@ -51,6 +51,10 @@ body {
     cursor: pointer;
 }
 
+#login{
+    font-weight: bold;
+    color: #F85F00;
+}
 
 #titulo:hover{
     transform: scale(110%);
