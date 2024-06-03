@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Home/iconPagina.jpg" type="image/x-icon"> 
+    
+    <link rel="stylesheet" href="css/dashoard.css">
+    <script type="text/javascript" src=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="receberPartidas()">
+    <header class="meu-header">
+        <div class="header">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+            <div class="container">
+                <ul class="navebar">
+                    <li onclick="home()" id="home"> Home </li>
+                    <li onclick="cubePlay()" id="cubeplay"> CubePLAY</li>
+                    <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
+                    <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
+                    <li onclick="Login()" id="login"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+    <h1 id="tituloDashboard" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+        Dashboard </h1>
+
+        <img id="fundoCinzaDashboard" src="assets/Dashboard/fundoCinzaDashboard.svg" alt="">
+        <img id="fundoBrancoDashboard" src="assets/Dashboard/fundoBrancoDashboard.svg" alt="">
+        <img id="fundoBrancoKpi1" src="assets/Dashboard/fundoBrancoKpi.svg" alt="">
+        <img id="fundoBrancoKpi2" src="assets/Dashboard/fundoBrancoKpi.svg" alt="">
+        <img id="fundoBrancoKpi3" src="assets/Dashboard/fundoBrancoKpi.svg" alt="">
+        <img id="fundoLaranjaKpi1" src="assets/Dashboard/fundoLaranjaKpi.svg" alt="">
+        <img id="fundoLaranjaKpi2" src="assets/Dashboard/fundoLaranjaKpi.svg" alt="">
+        <img id="fundoLaranjaKpi3" src="assets/Dashboard/fundoLaranjaKpi.svg" alt="">
+
+        <img onclick="voltar()" id="botaoVoltar" src="assets/dashboard/voltar.svg" alt="voltar">
+
+    <p id="textoRecordePessoal">
+        Recorde Pessoal </p>
+
+    <p id="textoPartidasJogadas">
+        Partidas Jogadas </p>
+
+    <p id="textoSugestoesEnviadas">
+        Feedbacks Enviados</p>
+
+        <p id="valorRecorde">
+            0
+        </p>
+
+        <p id="valorPartidas">
+            0</p>
+
+         <p id="valorSugestoes">
+            0</p>
+
+            <div id="containerCanvas">
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+</body>
+
+</html>
+
+<script>
+
+login.innerHTML = sessionStorage.NOME_USUARIO;
+var idUsuario = sessionStorage.ID_USUARIO;
+
+receberMaiorPontuacao();
+receberQtdPartidas();
+receberFeedback();
+  
+  function receberMaiorPontuacao() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/partida/receberMaiorPontuacao/${idUsuario}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(
+              `Pontuação recorde recebida: ${JSON.stringify(resposta)}`
+            );
+            valorRecorde.innerHTML = resposta[0].recorde;
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+
+  function receberQtdPartidas() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/partida/receberQtdPartidas/${idUsuario}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(
+              `quantidade de partidas jogadas: ${JSON.stringify(resposta)}`
+            );
+            console.log(resposta);
+            valorPartidas.innerHTML = resposta[0].qtdPartidas;
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+  function receberFeedback() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/usuarios/receberFeedback/${idUsuario}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(
+              `quantidade de partidas jogadas: ${JSON.stringify(resposta)}`
+            );
+            console.log(resposta);
+            valorSugestoes.innerHTML = resposta[0].qtdFeedbacks;
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+
+  function home(){
+    window.location.href = 'index.html';
+}
+
+function Login(){
+    window.location.href = 'perfil.html'
+}
+
+function cubePlay(){
+    window.location.href = 'index.html#meuFrame';
+}
+
+function inicio(){
+    window.location.href = 'index.html';
+}
+
+    function biblioteca(){
+    window.location.href = 'index.html#FrameBiblioteca';
+}
+
+function voltar(){
+    window.location.href = 'perfil.html'
+}
+
+function sobreMim(){
+   window.location.href = 'SobreMim.html';
+ }
+
+ function receberPartidas() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/partida/receberPartidas/${idUsuario}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(
+              `Dados das partidas recebidos: ${JSON.stringify(resposta)}`
+            );
+            plotarGrafico(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+
+  function plotarGrafico(resposta) {
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    var labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    var dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Pontuação no quiz",
+          data: [],
+          borderColor: "#F85F00",
+          borderWidth: 1,
+          backgroundColor: "#F85F00",
+          fill: true,
+          tension: 0.1,
+        },
+      ],
+    };
+
+    var options = {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
+    };
+    
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push(`Partida ${registro.idPartida}`);
+      dados.datasets[0].data.push(registro.pontuacao);
+    }
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "bar",
+      data: dados,
+      options: options,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(document.getElementById(`myChart`), config);
+  }
+
+</script>
+

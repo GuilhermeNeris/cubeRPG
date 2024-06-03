@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title> Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/TelaCadastro.css" />
+  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<!--header inicio-->
+<header class="meu-header">
+  <div class="header">
+    <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+    <div class="container">
+      <ul class="navebar">
+        <li id="home" onclick="home()"> Home </li>
+        <li id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
+        <li id="sobreMim" onclick="sobreMim()"> Sobre Mim </li>
+        <li id="biblioteca" onclick="biblioteca()"> Biblioteca</li>
+        <li id="login" onclick="login()"> Login</li>
+      </ul>
+    </div>
+  </div>
+</header>
+<!--header fim-->
+
+<h1 id="tituloFacaParteComunidade" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+  Faça parte da nossa comunidade!</h1>
+
+<img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
+<img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
+<img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
+
+<div class="boxCadastro">
+  <div class="nome">
+    Nome <br>
+    <input id="input_nomeUser" placeholder="Como você gostaria de ser chamado?"> <br>
+  </div>
+  <br>
+  <div class="email">
+    Email <br>
+    <input id="input_emailUser" placeholder="usuario@email.com"> <br>
+  </div>
+  <br>
+  <div class="senha">
+    Senha <br>
+    <input id="input_senhaUser" placeholder="Digite uma senha forte">
+  </div>
+  <br>
+  <div class="senha2x">
+    Confirmar senha <br>
+    <input id="input_senha2xUser" placeholder="Digite a senha novamente">
+  </div>
+  <br>
+
+  <div class="boxCadastrar">
+    <button onclick="cadastrar()" id="buttonCadastrar">
+      Cadastrar-se
+    </button>
+  </div>
+  <br>
+  <div class="boxJaTenhoConta">
+    <button onclick="IrParaTelaLogin()" id="buttonJaTenhoConta">
+      Já tenho uma conta
+    </button>
+  </div>
+
+</div>
+
+<!--footer inicio-->
+<div class="futter">
+</div>
+<br><br>
+<!--footer fim-->
+</body>
+
+</html>
+
+<script>
+
+  
+  function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    let nome = input_nomeUser.value;
+    let email = input_emailUser.value;
+    let senha = input_senhaUser.value;
+    let confirmacaoSenha = input_senha2xUser.value;
+    let tamanhoSenha = senha.length
+    let indiceArroba = email.indexOf("@")
+    let indiceEmail = email.indexOf("email")
+    let indiceCom = email.indexOf(".com")
+
+    senha = document.getElementById('input_senhaUser').value;
+    var temNumeroSenha = false;
+
+    for (var i = 0; i < senha.length; i++) {
+        var caractere = senha[i];
+        if (!isNaN(caractere) && caractere !== '') { // Verifica se é um número e não um espaço em branco
+            temNumeroSenha = true;
+            break;
+        }
+    }
+
+    if (
+      nome == "" ||
+      email == "" ||
+      senha == "" ||
+      confirmacaoSenha == ""
+    ) {
+      alert("Preencha todos os campos para prosseguir!");
+        var input1 = document.getElementById('input_nomeUser');
+        var input2 = document.getElementById('input_emailUser');
+        var input3 = document.getElementById('input_senhaUser');
+        var input4 = document.getElementById('input_senha2xUser');
+        input1.style.borderColor = 'red';
+        input2.style.borderColor = 'red';
+        input3.style.borderColor = 'red';
+        input4.style.borderColor = 'red';
+    } else if(nome == ''){
+        alert('Você deve informar seu nome para prosseguir!')
+        var input = document.getElementById('input_nomeUser');
+        input.style.borderColor = 'red';
+    } else if (email == '') {
+        alert('Você deve informar o seu email para prosseguir!')
+        var input = document.getElementById('input_emailUser');
+        input.style.borderColor = 'red';
+    } else if (senha == '') {
+        alert('Você deve informar uma senha para prosseguir!')
+        var input = document.getElementById('input_senhaUser');
+        input.style.borderColor = 'red';
+    } else if (tamanhoSenha <= 5) {
+        alert('A senha deve ter mais de 5 caracteres!')
+        var input = document.getElementById('input_senhaUser');
+        input.style.borderColor = 'red';
+    } else if (temNumeroSenha == false) {
+        alert('A senha deve conter pelo menos um número!')
+        var input = document.getElementById('input_senhaUser');
+        input.style.borderColor = 'red';
+    }else if(senha != confirmacaoSenha){
+        alert('A senha que você digitou não condiz com a confimação de senha. por favor verifique se você digitou os campos corretamente')
+        var input = document.getElementById('input_senha2xUser');
+        input.style.borderColor = 'red';
+    }else if (indiceArroba == -1) {
+        alert('O seu email deve ter [@]')
+        var input = document.getElementById('input_emailUser');
+        input.style.borderColor = 'red';
+    } else if (indiceEmail == -1) {
+        alert('O seu email deve ter dominio [email] para prosseguir!')
+        var input = document.getElementById('input_emailUser');
+        input.style.borderColor = 'red';
+    } else if (indiceCom == -1) {
+        alert('O seu email deve ter o dominio [.com] para prosseguir!')
+        var input = document.getElementById('input_emailUser');
+        input.style.borderColor = 'red';
+    }   else {
+        var input1 = document.getElementById('input_nomeUser');
+        var input2 = document.getElementById('input_emailUser');
+        var input3 = document.getElementById('input_senhaUser');
+        var input4 = document.getElementById('input_senha2xUser');
+        input1.style.borderColor = 'green';
+        input2.style.borderColor = 'green';   
+        input3.style.borderColor = 'green';
+        input4.style.borderColor = 'green';
+
+      fetch(`/usuarios/listar/${email}`,{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(function (resposta) {
+        if (resposta.ok) {
+          console.log(resposta);
+          if (resposta.status == 204) {
+            console.log('email inválido');
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha
+              }),
+            })
+              .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                  alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                  setTimeout(() => {
+                    window.location = "login.html";
+                  }, "0");
+
+                } else {
+                  throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+              })
+              .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+              });
+          } else{
+              alert('email já foi cadastrado');
+          }
+        }
+      });
+    }
+  }
+
+  function IrParaTelaLogin(){
+    window.location = "login.html";
+  }
+  
+  function home(){
+    window.location = 'index.html';
+}
+
+function Login(){
+    window.location = 'cadastro.html'
+}
+
+function cubePlay(){
+    window.location = 'index.html#meuFrame';
+}
+
+function inicio(){
+    window.location = 'index.html';
+}
+
+function biblioteca(){
+    window.location = 'index.html#FrameBiblioteca';
+}
+
+function sobreMim(){
+   window.location.href = 'SobreMim.html';
+ }
+
+</script>

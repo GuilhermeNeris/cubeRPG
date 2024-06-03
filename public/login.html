@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Home/iconPagina.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/telaLogin.css">
+    <script src="./js/sessao.js"></script>
+</head>
+
+<body>
+
+    <!--Header-->
+
+    <header class="meu-header">
+        <div class="header">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+            <div class="container">
+                <ul class="navebar">
+                    <li onclick="home()" id="home"> Home </li>
+                    <li onclick="cubeplay()" id="cubeplay"> CubePLAY</li>
+                    <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
+                    <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
+                    <li onclick="login()" id="login"> Login</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <h1 id="tituloFacalogin" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+        Faça login para iniciar a sessão</h1>
+
+    <img id="fundoLaranjaCadastro" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
+    <img id="fundoDesenho" src="assets/CadastroLogin/fundoDesenho.png" alt="">
+    <img id="logoTelaCadastro" src="assets/CadastroLogin/logoTelaCadastro.png" alt="">
+
+
+        <div class="boxCadastro">
+            <div class="email">
+                Email <br>
+                <input id="input_emailUser" placeholder="usuario@email.com"> <br>
+            </div>
+            <br>
+            <div class="senha">
+                Senha <br>
+                <input id="input_senhaUser" type="current_password" placeholder="Digite sua senha">
+            </div>
+            <br>
+            <div class="boxLogar">
+                <button onclick="entrar()" id="Entrar">
+                    Entrar
+                </button>
+            </div>
+            <br>
+            <div class="boxNaoTenhoConta">
+                <button onclick="NaoTenhoConta()" id="buttonNaoTenhoConta">
+                    Não tenho uma conta
+                </button>
+            </div>
+
+        </div>
+    
+
+    <div class="futter">
+    </div>
+    <br><br>
+
+</body>
+
+</html>
+
+<script>
+
+
+function entrar() {
+
+    let email = input_emailUser.value;
+    let senha = input_senhaUser.value;
+    let tamanhoSenha = senha.length
+    let indiceArroba = email.indexOf("@")
+    let indiceEmail = email.indexOf("email")
+    let indiceCom = email.indexOf(".com")
+
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                var input1 = document.getElementById('input_emailUser');
+                var input2 = document.getElementById('input_senhaUser');
+                input1.style.borderColor = 'green';
+                input2.style.borderColor = 'green';
+
+                alert('Login realizado com sucesso!');
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                setTimeout( () => {
+                    window.location = "/Perfil.html";
+                  }, "0");
+
+                });
+
+            } else {
+                if (email != resposta[0].email || senha != resposta[0].senha) {
+                    alert('Email ou senha inválidos');
+                }
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+
+        }
+
+    function NaoTenhoConta() {
+        window.location = "cadastro.html";
+    }
+
+    function home() {
+        window.location = 'index.html';
+    }
+
+    function cubeplay() {
+        window.location = 'index.html#meuFrame';
+    }
+
+    function sobreMim() {
+        window.location = 'SobreMim.html';
+    }
+
+    function login() {
+        window.location = 'cadastro.html';
+    }
+
+    function inicio() {
+        window.location = 'index.html';
+    }
+
+    function biblioteca() {
+        window.location = 'index.html#FrameBiblioteca';
+    }
+
+    
+</script>

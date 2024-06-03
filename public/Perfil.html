@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Home/iconPagina.jpg" type="image/x-icon">
+
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+
+<body>
+    <header class="meu-header">
+        <div class="header">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+            <div class="container">
+                <ul class="navebar">
+                    <li onclick="home()" id="home"> Home </li>
+                    <li onclick="cubeplay()" id="cubeplay" onclick="cubePlay()"> CubePLAY</li>
+                    <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
+                    <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
+                    <li onclick="login()" id="login"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <img id="fundoLaranjaPerfil" src="assets/Perfil/fundoLaranjaPerfil.png" alt="">
+    <img id="fundoCinza" src="assets/Perfil/fundoCinza.svg">
+    <img id="fotoDePerfil" src="assets/Perfil/FotoDePerfil.svg" alt="">
+
+    <h1 id="tituloMeuPerfil" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+        Meu Perfil</h1>
+
+    <p id="textoNome"> Nome</p>
+
+    <img id="fundoNome" src="assets/Perfil/fundoNome.svg" alt="">
+     
+    <p id="textoBio"> Bio</p>
+
+    <img id="fundoBio" src="assets/Perfil/fundoBio.svg" alt="">
+
+    <textarea id="BioDescricao"></textarea>
+
+    <div class="boxOpcao1">
+        <button onclick="Dashboard()" id="botaoOpcao1">
+            Dashboard
+        </button>
+
+        <div class="boxOpcao2">
+            <button onclick="feedback()" id="botaoOpcao2">
+                Feedback 
+            </button>
+        </div>
+
+        <div class="boxOpcao3">
+            <button onclick="quiz()" id="botaoOpcao3">
+                Quiz
+            </button>
+
+            <div class="boxOpcao4">
+                <button onclick="SairDaConta()" id="botaoOpcao4">
+                    Sair da conta
+                </button>
+
+     <div class="boxSalvar">
+                <button onclick="" id="botaoSalvar">
+                    Salvar
+                </button>
+         
+            <span id="NomeUser"></span>
+                
+</body>
+
+</html>
+
+<script>
+   
+    NomeUser.innerHTML = sessionStorage.NOME_USUARIO;
+    login.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function quiz(){
+        window.location = 'quiz.html';
+    }
+
+    function home(){
+    window.location = 'index.html';
+}
+
+function cubeplay(){
+    window.location = 'index.html#meuFrame';
+}
+
+function inicio(){
+    window.location = 'index.html';
+}
+
+function biblioteca(){
+    window.location = 'index.html#FrameBiblioteca';
+}
+
+function sobreMim(){
+    window.location = 'SobreMim.html';
+}
+
+function Dashboard(){
+    window.location = 'dashboard.html';
+}
+
+function SairDaConta(){
+    limparSessao()
+}
+
+function feedback(){
+    window.location = 'feedback.html';
+}
+</script>

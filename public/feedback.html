@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Home/iconPagina.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/perfil.css">
+    <script src="js/sessao.js"></script>
+</head>
+
+<body>
+    <header class="meu-header">
+        <div class="header">
+            <img onclick="inicio()" src="assets/Home/logo.png" alt="" id="titulo">
+            <div class="container">
+                <ul class="navebar">
+                    <li onclick="home()" id="home"> Home </li>
+                    <li onclick="cubeplay()" id="cubeplay"> CubePLAY</li>
+                    <li onclick="sobreMim()" id="sobreMim"> Sobre Mim </li>
+                    <li onclick="biblioteca()" id="biblioteca"> Biblioteca</li>
+                    <li onclick="Login()" id="login"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <h1 id="tituloFeedback" style="color:#F85F00; font-size: 50px; font-family: Inter, sans-serif;">
+        Feedback</h1>
+
+        <img id="fundoLaranjaFormulario" src="assets/CadastroLogin/fundoLaranjaCadastro.jpg" alt="">
+
+        <p id="textoFeedback">O feedback é crucial para o desenvolvimento <br>
+            desse site porque ele oferece insights sobre <br>
+            desempenho, destaca pontos fortes e áreas <br>
+            a melhorar, e orienta o crescimento contínuo. <br>
+        Por favor, seja respeitoso e especifico na hora <br> 
+        de escrever seu feedback!</p>
+
+        
+        <textarea id="ConteudoFeedback" placeholder="Escreva seu feedback aqui"></textarea>
+        <textarea id="AssuntoFeedback" placeholder="Assunto"></textarea>
+        <textarea id="AutorFeedback" placeholder="Autor"></textarea>
+
+        <div class="boxBotaolaranja1">
+            <button onclick="enviar()" type="button" id="botaoLaranja1">
+                Enviar feedback
+            </button>
+        </div>
+       
+
+       <img onclick="voltar()" id="botaoVoltar" src="assets/dashboard/voltar.svg" alt="voltar">
+
+</body>
+</html>
+
+
+<script>
+login.innerHTML = sessionStorage.NOME_USUARIO;
+AutorFeedback.value = sessionStorage.NOME_USUARIO;
+
+
+function enviar(){
+ let autor = AutorFeedback.value;
+ let assunto = AssuntoFeedback.value;
+ let textoFeedback = ConteudoFeedback.value
+ let idUsuario = sessionStorage.ID_USUARIO;
+
+ fetch(`/usuarios/enviar`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                autorServer: autor,
+                assuntoServer: assunto,
+                textoFeedbackServer: textoFeedback,
+                idUsuarioServer: idUsuario
+              }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                  alert("FeedBack enviado com sucesso!");
+
+                } else {
+                  throw "Houve um erro ao tentar enviar o feedback!";
+                }
+              })
+              .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+              });
+}
+
+
+
+
+function voltar(){
+    window.location.href = 'perfil.html'
+}
+
+function home(){
+    window.location.href = 'index.html';
+}
+
+function cubeplay(){
+    window.location.href = 'index.html#meuFrame';
+}
+
+function inicio(){
+    window.location.href = 'index.html';
+}
+
+function biblioteca(){
+    window.location.href = 'index.html#FrameBiblioteca';
+}
+
+function sobreMim(){
+    window.location.href = 'SobreMim.html';
+}
+
+function Login(){
+    window.location.href = 'perfil.html';
+}
+</script>
+
+
+<style>
+    body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0; 
+}
+
+
+.header {
+    border-bottom: 2px solid #F85F00;
+    height: 75px;
+    display: flex;
+    width: 1380px;
+}
+
+
+.header .container{
+    justify-content: space-between;
+}
+
+#titulo{   
+   z-index: 5;
+   width: 200px;
+   height: 110px;
+   display: flex;
+   margin-top: -15px;
+   cursor: pointer;
+   text-shadow: 2px 2px 10px 0px rgba(0,0,0,0.6);
+   transition-duration: 0.2s;
+}
+
+
+.navebar{
+    position: absolute;
+    color: #000000;
+    width: 600px;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    list-style: none;
+    z-index: 3;
+    height: 50px;
+    padding-left: 420px;
+    text-decoration: none;
+    top: 0px;
+}
+
+#home:hover, #cubeplay:hover, #sobreMim:hover, #biblioteca:hover, #login:hover{
+    transform: scale(110%);
+    color: #F85F00;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+
+#titulo:hover{
+    transform: scale(110%);
+    transition: 0.1s;
+}
+
+#tituloFeedback{
+    padding-top: 20px;
+    padding-left: 550px;
+}
+
+#fundoLaranjaFormulario{
+    width: 520px;
+    height: 600px;
+    left: 420px;
+    position: relative;
+}
+
+#textoFeedback{
+    position: relative;
+    top: -580px;
+    left: 500px;
+}
+
+#ConteudoFeedback{
+    position: absolute;
+    display: flex;
+    resize: none;
+    width: 345px;
+    height: 180px;
+    top: 500px;
+    left: 500px;    
+    border-radius: 5px;
+}
+
+#AssuntoFeedback{
+    position: absolute;
+    display: flex;
+    resize: none;
+    width: 345px;
+    height: 20px;
+    top: 460px;
+    left: 500px;    
+    border-radius: 5px;
+}
+
+#AutorFeedback{
+    position: absolute;
+    display: flex;
+    resize: none;
+    width: 345px;
+    height: 20px;
+    top: 420px;
+    left: 500px;    
+    border-radius: 5px;
+}
+
+#botaoLaranja1{
+    z-index: 12;
+    background-color: #F85F00;
+    font-size: small;
+    font-family:'Inter', sans-serif; ;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    border-color: #F85F00;
+    position:relative; 
+    transition: 0.3s;
+    cursor: pointer;
+    left: 610px;
+    top: -250px;
+}
+
+
+#botaoLaranja1:hover{
+    background-color: #c94e02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botaoVoltar{
+    width: 50px;
+    height: 50px;
+    top: -840px;
+    position: relative;
+    left: 200px;
+}
+
+#botaoVoltar:hover{
+    cursor: pointer;
+}
+
+
+</style>
